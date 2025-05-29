@@ -19,19 +19,31 @@
             margin: 40px auto;
             border-radius: 12px;
         }
-        h1, h2 { margin: 0 0 10px; }
-        p { margin-bottom: 20px; }
-        a.button {
-            display: inline-block;
-            margin: 5px 10px 5px 0;
-            padding: 10px 16px;
-            background: #1db954;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.2s;
+        h1, h2 {
+            margin: 0 0 10px;
         }
-        a.button:hover { background: #1ed760; }
+        p {
+            margin-bottom: 20px;
+        }
+        .slideshow {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .slideshow img.active {
+            opacity: 1;
+            position: relative;
+        }
         iframe {
             width: 100%;
             height: 452px;
@@ -45,15 +57,32 @@
     <div class="container">
         <h1>fatness4...the greedies</h1>
         <p>
-            Undoubtedly, the sounds of the 90s flicker through the finely braided song structures of these 3 gentlemen from Bremen, Northern Germany. They guide you through dense, driving guitar walls, sensitive vocal lines and oblique drum foundations to reduced emotional song passages to create sound images that take you on a journey.
-            The new project „fatness4…the greedies“ was created after the death of their previous bands and Falko began writing new songs in 2020.
-            Falko Brunswick   guitars, bass, organ, backing vocals
-            Axel Clausen   drums, backing vocals
-            Yasin Boranbay   lead vocals
+            Undoubtedly, the sounds of the 90s flicker through the finely braided song structures of these 3 gentlemen from Bremen, Northern Germany. They guide you through dense, driving guitar walls, sensitive vocal lines and oblique drum foundations to reduced emotional song passages to create sound images that take you on a journey.<br><br>
+            The new project „fatness4…the greedies“ was created after the death of their previous bands and Falko began writing new songs in 2020.<br><br>
+            <strong>Falko Brunswick</strong> – guitars, bass, organ, backing vocals<br>
+            <strong>Axel Clausen</strong> – drums, backing vocals<br>
+            <strong>Yasin Boranbay</strong> – lead vocals<br><br>
             We hope you‘ll like it and see you on a concert.
         </p>
+
+        <div class="slideshow">
+            <img src="bandfoto1.jpg" class="active" alt="Bandfoto 1">
+            <img src="bandfoto2.jpg" alt="Bandfoto 2">
+            <img src="bandfoto3.jpg" alt="Bandfoto 3">
+        </div>
+
         <h2>Hear right in:</h2>
         <iframe src="https://open.spotify.com/embed/album/1IHI9aivNyEqElcmYNT6qu?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slideshow img');
+        let current = 0;
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 5000);
+    </script>
 </body>
 </html>
