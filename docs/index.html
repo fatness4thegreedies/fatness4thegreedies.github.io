@@ -25,25 +25,26 @@
         p {
             margin-bottom: 20px;
         }
-        .slideshow {
-            position: relative;
-            width: 100%;
-            height: auto;
-            margin: 20px 0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .slideshow img {
-            position: absolute;
-            width: 100%;
-            height: auto;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .slideshow img.active {
-            opacity: 1;
-            position: relative;
-        }
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 400px; /* festgelegte Höhe für Querformat */
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%; /* volle Höhe */
+    object-fit: cover; /* Bild an Fläche anpassen */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slideshow img.active {
+    opacity: 1;
+    position: relative;
+}
         iframe {
             width: 100%;
             height: 452px;
